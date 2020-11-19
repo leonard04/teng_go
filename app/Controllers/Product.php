@@ -4,7 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Model_product;
 use Config\View;
-
+use TCPDF;
 class Product extends Controller{
 
     protected $table = "product";
@@ -68,11 +68,25 @@ class Product extends Controller{
         }
     }
 
-    public function indexjson(){
+    public function print(){
         $product = new Model_product();
         $products = $product->tampilData()->getResult();
+        $html = view('product/print',[
+			'products'=> $products,
+		]);
+        $pdf = new TCPDF('L', PDF_UNIT, 'A4', true, 'UTF-8', false);
+        $pdf->SetCreator(PDF_CREATOR);
+		$pdf->SetAuthor('Leonardo');
+		$pdf->SetTitle('Product');
+		$pdf->SetSubject('Product List');
 
-        // header('Content-Type: application/json');
-        echo json_encode($products);
+		$pdf->setPrintHeader(false);
+		$pdf->setPrintFooter(false);
+
+        $pdf->addPage();
+        
+        $pdf->writeHTML($html, true, false, true, false, '');
+        $this->response->setContentType('application/pdf');
+        $pdf->Output('ProductList.pdf', 'I');
     }
 }

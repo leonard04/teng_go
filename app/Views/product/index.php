@@ -7,7 +7,7 @@
         </div>
         <div class="card-toolbar">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="#" class="btn btn-primary"><i class="fa fa-print"></i>&nbsp;Print</a>
+                <a href="<?= base_url('productPrint'); ?>" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i>&nbsp;Print</a>
                 &nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEmployee"><i class="fa fa-plus"></i>Add Product</button>
             </div>
