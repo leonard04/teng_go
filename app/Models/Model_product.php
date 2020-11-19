@@ -32,7 +32,7 @@ class Model_product extends Model{
         return $this->db->table('product')->update($data, ['product_id' => $id]);
     }
 
-    public function delete_product($id){
+    function delete_product($id){
         return $this->db->table('product')->delete(['product_id' => $id]);
     }
 }

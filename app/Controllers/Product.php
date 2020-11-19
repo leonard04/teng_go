@@ -35,7 +35,6 @@ class Product extends Controller{
         $simpan = $product->insert_product($data);
 
         if($simpan){
-            session()->setFlashdata('success', 'Created product successfully');
             return redirect()->to(base_url('product')); 
         }
     }
@@ -56,7 +55,6 @@ class Product extends Controller{
         $simpan = $product->update_product($data,$id);
 
         if($simpan){
-            session()->setFlashdata('success', 'Updated product successfully');
             return redirect()->to(base_url('product')); 
         }
     }
@@ -66,9 +64,6 @@ class Product extends Controller{
         $hapus = $product->delete_product($id);
         if($hapus)
         {
-                // Deklarasikan session flashdata dengan tipe warning
-            session()->setFlashdata('warning', 'Deleted product successfully');
-            // Redirect ke halaman product
             return redirect()->to(base_url('product'));
         }
     }
