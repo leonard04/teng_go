@@ -67,4 +67,12 @@ class Product extends Controller{
             return redirect()->to(base_url('product'));
         }
     }
+
+    public function indexjson(){
+        $product = new Model_product();
+        $products = $product->tampilData()->getResult();
+
+        // header('Content-Type: application/json');
+        echo json_encode($products);
+    }
 }
