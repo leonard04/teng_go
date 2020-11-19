@@ -9,10 +9,11 @@ class Product extends Controller{
 
     public function index(){
         $product = new Model_product();
-        $data =[
-            'products' => $product->tampilData()->getResult(),
-        ];
+        $products =$product->tampilData()->getResult();
+       
             // print_r($data);
-        echo View('viewtampilproduct', $data);
+        return View('product/index', [
+            'products' => $products,
+        ]);
     }
 }
