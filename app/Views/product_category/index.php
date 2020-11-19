@@ -100,7 +100,7 @@
                             <div class="form col-md-12">
                                 
                                 <div class="form-group">
-                                    <label>Product Name</label>
+                                    <label>Category Name</label>
                                     <input type="text" class="form-control" name="category_name" placeholder="Product Category" required />
                                 </div>
                         
