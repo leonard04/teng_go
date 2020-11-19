@@ -7,13 +7,69 @@ use Config\View;
 
 class Product extends Controller{
 
+    protected $table = "product";
+
     public function index(){
+
         $product = new Model_product();
-        $products =$product->tampilData()->getResult();
-       
-            // print_r($data);
+        $products = $product->tampilData()->getResult();
+        $category = $product->tampilCategory()->getResult();
+            // print_r($products);
         return View('product/index', [
             'products' => $products,
+            'categories' => $category,
         ]);
+    }
+
+    public function store(){
+        $name = $this->request->getPost('product_name');
+        $price = $this->request->getPost('price');
+        $category = $this->request->getPost('category');
+
+        $data = [
+            'product_name' => $name,
+            'product_price' => $price,
+            'product_category_id' => $category,
+        ];
+        $product = new Model_product();
+        $simpan = $product->insert_product($data);
+
+        if($simpan){
+            session()->setFlashdata('success', 'Created product successfully');
+            return redirect()->to(base_url('product')); 
+        }
+    }
+
+    public function update(){
+        $name = $this->request->getPost('product_name');
+        $price = $this->request->getPost('price');
+        $category = $this->request->getPost('category');
+        $id = $this->request->getPost('id');
+
+        $data = [
+            'product_name' => $name,
+            'product_price' => $price,
+            'product_category_id' => $category,
+        ];
+
+        $product = new Model_product();
+        $simpan = $product->update_product($data,$id);
+
+        if($simpan){
+            session()->setFlashdata('success', 'Updated product successfully');
+            return redirect()->to(base_url('product')); 
+        }
+    }
+
+    public function delete($id){
+        $product = new Model_product();
+        $hapus = $product->delete_product($id);
+        if($hapus)
+        {
+                // Deklarasikan session flashdata dengan tipe warning
+            session()->setFlashdata('warning', 'Deleted product successfully');
+            // Redirect ke halaman product
+            return redirect()->to(base_url('product'));
+        }
     }
 }

@@ -33,6 +33,9 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/product','Product::index');
 $routes->get('/category', 'Category::index');
+$routes->post('/product/store','Product::store');
+$routes->post('/product/update','Product::update');
+$routes->delete('/product/delete/(:any)','Product::delete');
 
 /**
  * --------------------------------------------------------------------
