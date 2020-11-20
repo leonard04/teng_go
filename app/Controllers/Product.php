@@ -69,6 +69,7 @@ class Product extends Controller{
     }
 
     public function print(){
+        // return View('product/print/viewer');
         $product = new Model_product();
         $products = $product->tampilData()->getResult();
         $html = view('product/print',[
