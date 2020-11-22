@@ -7,9 +7,11 @@
         </div>
         <div class="card-toolbar">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="<?= base_url('productPrint'); ?>" target="_blank" class="btn btn-primary"><i class="fa fa-print"></i>&nbsp;Print</a>
+                <a href="<?= base_url('productPrint'); ?>" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-print"></i>&nbsp;Print Basic</a>
                 &nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addEmployee"><i class="fa fa-plus"></i>Add Product</button>
+                <a href="<?= base_url('/stimulsoft/viewer.php'); ?>" target="_blank" class="btn btn-info btn-xs"><i class="fa fa-print"></i>&nbsp;Print Stimulsoft</a>
+                &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#addEmployee"><i class="fa fa-plus"></i>Add Product</button>
             </div>
             <!--end::Button-->
         </div>

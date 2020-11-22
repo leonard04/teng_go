@@ -69,7 +69,7 @@ class Product extends Controller{
     }
 
     public function print(){
-        // return View('product/print/viewer');
+        // return $this->load->view('product/print/viewer');
         $product = new Model_product();
         $products = $product->tampilData()->getResult();
         $html = view('product/print',[
@@ -90,4 +90,5 @@ class Product extends Controller{
         $this->response->setContentType('application/pdf');
         $pdf->Output('ProductList.pdf', 'I');
     }
+    
 }

@@ -15,7 +15,7 @@
                 <ul class="header-tabs nav align-self-end font-size-lg ml-20" role="tablist">
                     <!--begin::Item-->
                     <li class="nav-item">
-                        <a href="{{route('home')}}" class="nav-link py-4 px-6 active" data-toggle="tab" data-target="#kt_header_tab_1" role="tab">
+                        <a href="<?= base_url()?>" class="nav-link py-4 px-6 active" data-toggle="tab" data-target="#kt_header_tab_1" role="tab">
                             PT ALPHABET
                         </a>
                     </li>
