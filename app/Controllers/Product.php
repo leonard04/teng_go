@@ -90,5 +90,5 @@ class Product extends Controller{
         $this->response->setContentType('application/pdf');
         $pdf->Output('ProductList.pdf', 'I');
     }
-    
+
 }
